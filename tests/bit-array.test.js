@@ -42,8 +42,19 @@ exports.testArraySet = function () {
 
 	b.set(32, true);
 	
-	assert.equal(b.size(), 64, 'set(31, true).size()');
-	assert.equal(b.toString(), '0000000000000000000000000000000010000000000000000000000000000000', 'set(31, true).toString()');
+	assert.equal(b.size(), 64, 'set(32, true).size()');
+	assert.equal(b.toString(), '0000000000000000000000000000000010000000000000000000000000000000', 'set(32, true).toString()');
+};
+
+exports.testBitCount = function () {
+	var b = new bitArray.BitArray();
+
+	b.set(32, true);
+	b.set(70, true);
+	b.set(1, true);
+	b.set(12, true);
+
+	assert.equal(b.count(), 4, 'count()');
 };
 
 if (module === require.main) {
