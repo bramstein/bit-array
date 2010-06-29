@@ -1,0 +1,23 @@
+{
+	"name": "bit-array",
+	"description": "JavaScript implementation of bit arrays.",
+	"version": "0.1.0",
+	"licenses": [{
+		"type": "new BSD",
+		"url": "http://www.bramstein.com/licenses/BSD.txt"
+	}],
+	"maintainers": [{
+		"name": "Bram Stein",
+		"web": "http://www.bramstein.com/",
+		"email": "b.l.stein@gmail.com"
+	}],
+	"repositories": [{
+		"type": "git",
+		"url": "http://github.com/bramstein/bit-array"
+	}],
+	"dependencies": [
+	],
+	"directories": {
+		"lib": "lib"
+	}
+}
