@@ -30,27 +30,28 @@ API
 ===
 The BitArray module has two constructors:
 
- * BitArray() - Creates a new empty bit array.
- * BitArray([integer, ...]) - Creates a new bit array using the array of integers as internal representation.
+* `BitArray()` - Creates a new empty bit array.
+* `BitArray([integer, ...])` - Creates a new bit array using the array of integers as internal representation.
 
 The following instance methods are supported:
- * size() - Returns the total number of bits in the BitArray.
- * set(index, boolean) - Sets the bit at index to a value (boolean.)
- * get(index) - Returns the value of the bit at index (boolean.)
- * toggle(index) - Toggles the bit at index. If the bit is on, it is turned off. Likewise, if the bit is off it is turned on.
- * reset() - Resets the BitArray so that it is empty and can be re-used.
- * copy() - Returns a copy of this BitArray.
- * equals(other) - Returns true if this BitArray equals another. Two BitArrays are considered equal if both have the same length and bit pattern.
- * toJSON() - Returns the JSON representation of this BitArray.
- * toString() - Returns a string representation of the BitArray with bits in logical order.
- * valueOf() - Returns the internal representation of the BitArray.
- * toArray() - Convert the BitArray to an Array of boolean values.
- * count() - Returns the total number of bits set to one in this BitArray.
- * forEach(fn, scope) - Iterate over each value in the BitArray.
- * not() - Inverts this BitArray.
- * or(other) - Bitwise OR on the values of this BitArray using BitArray `other`.
- * and(other) - Bitwise AND on the values of this BitArray using BitArray `other`.
- * xor(other) - Bitwise XOR on the values of this BitArray using BitArray `other`.
+
+* `size()` - Returns the total number of bits in the BitArray.
+* `set(index, boolean)` - Sets the bit at index to a value (boolean.)
+* `get(index)` - Returns the value of the bit at index (boolean.)
+* `toggle(index)` - Toggles the bit at index. If the bit is on, it is turned off. Likewise, if the bit is off it is turned on.
+* `reset()` - Resets the BitArray so that it is empty and can be re-used.
+* `copy()` - Returns a copy of this BitArray.
+* `equals(other)` - Returns true if this BitArray equals another. Two BitArrays are considered equal if both have the same length and bit pattern.
+* `toJSON()` - Returns the JSON representation of this BitArray.
+* `toString()` - Returns a string representation of the BitArray with bits in logical order.
+* `valueOf()` - Returns the internal representation of the BitArray.
+* `toArray()` - Convert the BitArray to an Array of boolean values.
+* `count()` - Returns the total number of bits set to one in this BitArray.
+* `forEach(fn, scope)` - Iterate over each value in the BitArray.
+* `not()` - Inverts this BitArray.
+* `or(other)` - Bitwise OR on the values of this BitArray using BitArray `other`.
+* `and(other)` - Bitwise AND on the values of this BitArray using BitArray `other`.
+* `xor(other)` - Bitwise XOR on the values of this BitArray using BitArray `other`.
 
 Installation
 ============
