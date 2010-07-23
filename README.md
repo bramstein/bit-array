@@ -1,17 +1,17 @@
 Introduction
 ============
-This package contains a JavaScript CommonJS implementation of bit arrays. The bit array supports:
+This library contains a JavaScript implementation of bit arrays. The library supports:
 
 * getting, setting and toggling of individual bits
 * iterating over each bit
 * counting the number of "on" bits
 * bitwise operations with other bit arrays such as OR, AND and XOR.
 * serialization to and from JSON
+* CommonJS compatible
 
 The bit array also grows automatically depending on your usage and is sparse. The following example shows how to set and get individual bits within the array.
 
-	bitArray = require('bit-array');
-	a = new bitArray.BitArray();
+	a = new BitArray();
  
 	a.set(0, true);
 	a.set(31, true);
@@ -21,7 +21,7 @@ The bit array also grows automatically depending on your usage and is sparse. Th
 	a.get(1); // false
 	a.get(31); // true
 
-Note that the array internally uses 32 bit integers and thus grows by 32 bits if necessary.
+Note that the array internally uses 32 bit integers and thus grows by 32 bits if necessary (Actually, JavaScript's number type is 64 bit, but only 32 bits can be addressed using bitwise operations.)
 
 	a.set(32, true);
 	a.toString(); // "1000000000000000000000000000000110000000000000000000000000000000"
@@ -46,7 +46,7 @@ The following instance methods are supported:
 * `toString()` - Returns a string representation of the BitArray with bits in logical order.
 * `valueOf()` - Returns the internal representation of the BitArray.
 * `toArray()` - Convert the BitArray to an Array of boolean values.
-* `count()` - Returns the total number of bits set to one in this BitArray.
+* `count()` - Returns the total number of bits set to 1 in this BitArray.
 * `forEach(fn, scope)` - Iterate over each value in the BitArray.
 * `not()` - Inverts this BitArray.
 * `or(other)` - Bitwise OR on the values of this BitArray using BitArray `other`.
@@ -58,3 +58,9 @@ Installation
 You can install the bit array module using Tusk:
 
     tusk install http://github.com/bramstein/bit-array/zipball/master
+
+Alternatively you could just include `bit-array.js` in your project.
+
+License
+=======
+Licensed under the revised BSD License. Copyright 2010 Bram Stein. All rights reserved.
