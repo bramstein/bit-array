@@ -1,7 +1,7 @@
 {
 	"name": "bit-array",
 	"description": "JavaScript implementation of bit arrays.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"licenses": [{
 		"type": "new BSD",
 		"url": "http://www.bramstein.com/licenses/BSD.txt"
