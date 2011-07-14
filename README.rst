@@ -83,3 +83,7 @@ Alternatively you could just include `bit-array.js <lib/bit-array.js>`_ in your 
 License
 =======
 Licensed under the revised BSD License. Copyright 2010 Bram Stein. All rights reserved.
+
+Ports
+=====
+https://github.com/foglcz/bit-array - PHP port by Pavel Ptacek
