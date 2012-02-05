@@ -8,7 +8,7 @@ This library contains a JavaScript implementation of bit arrays. The library sup
 * counting the number of "on" bits
 * bitwise operations with other bit arrays such as OR, AND and XOR.
 * serialization to and from JSON
-* CommonJS compatible
+* Browser, Node.js and Ender.js compatible
 
 The bit array also grows automatically depending on your usage and is sparse. The following example shows how to set and get individual bits within the array::
 
@@ -74,9 +74,9 @@ xor(other)
 
 Installation
 ============
-You can install the bit array module using Tusk::
+You can install the bit array module using npm::
 
-> tusk install http://github.com/bramstein/bit-array/zipball/master
+> npm install bit-array
 
 Alternatively you could just include `bit-array.js <lib/bit-array.js>`_ in your project.
 
