@@ -1,23 +1,15 @@
 {
 	"name": "bit-array",
-	"description": "JavaScript implementation of bit arrays.",
-	"version": "0.1.1",
-	"licenses": [{
-		"type": "new BSD",
-		"url": "http://www.bramstein.com/licenses/BSD.txt"
-	}],
-	"maintainers": [{
-		"name": "Bram Stein",
-		"web": "http://www.bramstein.com/",
-		"email": "b.l.stein@gmail.com"
-	}],
-	"repositories": [{
+	"description": "JavaScript implementation of bit arrays",
+	"version": "0.1.2",
+	"author": "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)",
+	"repository": {
 		"type": "git",
-		"url": "http://github.com/bramstein/bit-array"
-	}],
-	"dependencies": [
-	],
+		"url": "git://github.com/bramstein/bit-array.git"
+	},
+	"keywords": ["bit array", "bit-array", "bit vector", "bitset", "bitmap", "bitstring"],
+	"main": "./lib/bit-array.js",
 	"directories": {
-		"lib": "lib"
+		"lib": "./lib"
 	}
 }
