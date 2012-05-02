@@ -1,5 +1,4 @@
-JavaScript Bit Array Library
-============================
+## JavaScript Bit Array Library
 
 This library contains a JavaScript implementation of bit arrays. The library supports:
 
@@ -26,8 +25,8 @@ Note that the array internally uses 32 bit integers and thus grows by 32 bits if
 
 Even though bit arrays are not that useful in JavaScript, there is one place where they excel; encoding large boolean sets for transfer between the browser and server. A JSON representation of a bit array is much smaller than an actual boolean array.
 
-API
----
+## API
+
 The BitArray module has two constructors:
 
 <dl>
@@ -93,8 +92,7 @@ The following instance methods are supported:
     <dd>Bitwise XOR on the values of this BitArray using BitArray `other`.</dd>
 </dl>
 
-Installation
-------------
+## Installation
 
 You can install the bit array module using npm:
 
@@ -102,8 +100,8 @@ You can install the bit array module using npm:
 
 Alternatively you could just include [bit-array.js](lib/bit-array.js) in your project.
 
-License
--------
+## License
+
 Licensed under the revised BSD License. Copyright 2010 Bram Stein. All rights reserved.
 
 Ports
