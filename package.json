@@ -1,7 +1,7 @@
 {
 	"name": "bit-array",
 	"description": "JavaScript implementation of bit arrays",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"author": "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)",
 	"repository": {
 		"type": "git",
@@ -11,5 +11,11 @@
 	"main": "./lib/bit-array.js",
 	"directories": {
 		"lib": "./lib"
+	},
+	"devDependencies": {
+	  "test": "0.4.x"
+	},
+	"scripts": {
+	  "test": "node tests/bit-array.test.js"
 	}
 }
