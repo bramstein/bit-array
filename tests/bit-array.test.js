@@ -1,13 +1,13 @@
 var assert = require('assert'),
-	bitArray = require('../lib/bit-array.js');
+	BitArray = require('../lib/bit-array.js');
 
 exports.testConstructor = function () {
-	assert.equal(new bitArray.BitArray().toString().length, 0, 'Empty bit array: toString()');
-	assert.equal(new bitArray.BitArray().size(), 0, 'Empty bit array: size().');
+	assert.equal((new BitArray()).toString().length, 0, 'Empty bit array: toString()');
+	assert.equal((new BitArray()).size(), 0, 'Empty bit array: size().');
 };
 
 exports.testValueConstructor = function () {
-	var b = new bitArray.BitArray([1610614016, 90112]);
+	var b = new BitArray([1610614016, 90112]);
 
 //	b.set(10, true);
 //	b.set(29, true);
@@ -18,10 +18,30 @@ exports.testValueConstructor = function () {
 //	b.set(48, true);
 
 	assert.equal(b.toString(), '0000000010100000000000000000011000000000000001101000000000000000', 'BitArray([..])');
+	
+	var c = new BitArray([0xffffeeee, 0xddddcccc]);
+	
+	assert.equal(c.toHexString(), 'ffffeeeeddddcccc');
+};
+
+exports.testHexConstructor = function () {
+  var binaryDeadBeef = '11011110101011011011111011101111';
+	var b = new BitArray('deadbeef');
+
+  // Note that the "logical order" returned by the BitArray type is reversed
+  // from the "mathematical order" used to convert between representations.
+	assert.equal(b.toString().split('').reverse().join(''), binaryDeadBeef, 'BitArray(0x...)');
+	assert.equal(b.toBinaryString(), binaryDeadBeef, 'BitArray(0x...)');
+	assert.equal(b.toHexString(), 'deadbeef', 'BitArray(0x...)');
+	
+	// Test zero-padding
+	var c = new BitArray('c0ffeec0ffee').and(new BitArray('ffffffffff000000'));
+	
+	assert.equal(c.toHexString(), '0000c0ffee000000', 'BitArray(0x...)');
 };
 
 exports.testSimpleSet = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 
 	b.set(31, true); // 0 | 1 << 30
 	assert.equal(b.size(), 32, 'set(31, true).size()');
@@ -52,7 +72,7 @@ exports.testSimpleSet = function () {
 };
 
 exports.testArraySet = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 
 	b.set(32, true);
 	
@@ -61,7 +81,7 @@ exports.testArraySet = function () {
 };
 
 exports.testSimpleGet = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 	b.set(0, true);
 	b.set(4, true);
 	b.set(31, true);
@@ -72,7 +92,7 @@ exports.testSimpleGet = function () {
 };
 
 exports.testArrayGet = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 	b.set(32, true);
 
 	assert.equal(b.size(), 64, 'set(32, true).size()');
@@ -80,7 +100,7 @@ exports.testArrayGet = function () {
 };
 
 exports.testSimpleToggle = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 	b.set(0, true);
 	b.set(31, true);
 
@@ -90,7 +110,7 @@ exports.testSimpleToggle = function () {
 };
 
 exports.testArrayToggle = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 	b.set(32, true);
 
 	assert.equal(b.size(), 64, 'set(32, true).size()');
@@ -99,13 +119,13 @@ exports.testArrayToggle = function () {
 };
 
 exports.testSize = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 	b.set(200, true); // Math.floor(200 / 32) + 1 * 32;
 	assert.equal(b.size(), 224, 'size()');
 };
 
 exports.testBitCount = function () {
-	var b = new bitArray.BitArray();
+	var b = new BitArray();
 
 	b.set(32, true);
 	b.set(70, true);
@@ -116,10 +136,10 @@ exports.testBitCount = function () {
 };
 
 exports.testEquals = function () {
-	var a = new bitArray.BitArray(),
-		b = new bitArray.BitArray(),
-		c = new bitArray.BitArray(),
-		d = new bitArray.BitArray();
+	var a = new BitArray(),
+		b = new BitArray(),
+		c = new BitArray(),
+		d = new BitArray();
 
 	a.set(0, true);
 	a.set(1, true);
@@ -145,7 +165,7 @@ exports.testEquals = function () {
 };
 
 exports.testCopy = function () {
-	var a = new bitArray.BitArray(),
+	var a = new BitArray(),
 		b;
 
 	a.set(0, true);
@@ -158,7 +178,7 @@ exports.testCopy = function () {
 };
 
 exports.testNot = function () {
-	var b = new bitArray.BitArray(),
+	var b = new BitArray(),
 		a;
 
 	b.set(2, true);
@@ -177,8 +197,8 @@ exports.testNot = function () {
 };
 
 exports.testOr = function () {
-	var a = new bitArray.BitArray(),
-		b = new bitArray.BitArray();
+	var a = new BitArray(),
+		b = new BitArray();
 
 	a.set(0, true);//1110
 	a.set(1, false);
@@ -194,8 +214,8 @@ exports.testOr = function () {
 };
 
 exports.testAnd = function () {
-	var a = new bitArray.BitArray(),
-		b = new bitArray.BitArray();
+	var a = new BitArray(),
+		b = new BitArray();
 
 	a.set(0, true);
 	a.set(1, false);
@@ -211,8 +231,8 @@ exports.testAnd = function () {
 };
 
 exports.testXor = function () {
-	var a = new bitArray.BitArray(),
-		b = new bitArray.BitArray();
+	var a = new BitArray(),
+		b = new BitArray();
 
 	a.set(0, true);
 	a.set(1, false);
