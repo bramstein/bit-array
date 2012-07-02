@@ -18,9 +18,9 @@ exports.testValueConstructor = function () {
 //	b.set(48, true);
 
 	assert.equal(b.toString(), '0000000010100000000000000000011000000000000001101000000000000000', 'BitArray([..])');
-	
+
 	var c = new BitArray([0xffffeeee, 0xddddcccc]);
-	
+
 	assert.equal(c.toHexString(), 'ffffeeeeddddcccc');
 };
 
@@ -33,10 +33,10 @@ exports.testHexConstructor = function () {
 	assert.equal(b.toString().split('').reverse().join(''), binaryDeadBeef, 'BitArray(0x...)');
 	assert.equal(b.toBinaryString(), binaryDeadBeef, 'BitArray(0x...)');
 	assert.equal(b.toHexString(), 'deadbeef', 'BitArray(0x...)');
-	
+
 	// Test zero-padding
 	var c = new BitArray('c0ffeec0ffee').and(new BitArray('ffffffffff000000'));
-	
+
 	assert.equal(c.toHexString(), '0000c0ffee000000', 'BitArray(0x...)');
 };
 
@@ -75,9 +75,20 @@ exports.testArraySet = function () {
 	var b = new BitArray();
 
 	b.set(32, true);
-	
+
 	assert.equal(b.size(), 64, 'set(32, true).size()');
 	assert.equal(b.toString(), '0000000000000000000000000000000010000000000000000000000000000000', 'set(32, true).toString()');
+};
+
+exports.testToHexString = function () {
+    var b = new BitArray()
+    b.set(512, true);
+    assert.equal(b.toHexString(), '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001');
+};
+
+exports.testToHexStringConstructor = function () {
+    var b = new BitArray('deadbeef');
+    assert.equal(b.toHexString(), 'deadbeef');
 };
 
 exports.testSimpleGet = function () {
