@@ -32,6 +32,9 @@ The BitArray module has two constructors:
 <dl>
     <dt>BitArray()</dt>
     <dd>Creates a new empty bit array.</dd>
+    
+    <dt>BitArray(string)</dt>
+    <dd>Creates a new bit array using the hex values in the string</dd>
 
     <dt>BitArray([integer, ...])</dt>
     <dd>Creates a new bit array using the array of integers as internal representation.</dd>
@@ -66,6 +69,9 @@ The following instance methods are supported:
     
     <dt>toString()</dt>
     <dd>Returns a string representation of the BitArray with bits in logical order.</dd>
+    
+    <dt>toHexString()</dt>
+    <dd>Returns a hex representation of the BitArray.</dd>
     
     <dt>valueOf()</dt>
     <dd>Returns the internal representation of the BitArray.</dd>
