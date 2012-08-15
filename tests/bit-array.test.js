@@ -2,26 +2,8 @@ var assert = require('assert'),
 	BitArray = require('../lib/bit-array.js');
 
 exports.testConstructor = function () {
-	assert.equal((new BitArray()).toString().length, 0, 'Empty bit array: toString()');
-	assert.equal((new BitArray()).size(), 0, 'Empty bit array: size().');
-};
-
-exports.testValueConstructor = function () {
-	var b = new BitArray([1610614016, 90112]);
-
-//	b.set(10, true);
-//	b.set(29, true);
-//	b.set(30, true);
-//	b.set(8, true);
-//	b.set(45, true);
-//	b.set(46, true);
-//	b.set(48, true);
-
-	assert.equal(b.toString(), '0000000010100000000000000000011000000000000001101000000000000000', 'BitArray([..])');
-
-	var c = new BitArray([0xffffeeee, 0xddddcccc]);
-
-	assert.equal(c.toHexString(), 'ffffeeeeddddcccc');
+	assert.equal((new BitArray()).toString().length, 32, 'Empty bit array: toString()');
+	assert.equal((new BitArray()).size(), 32, 'Empty bit array: size().');
 };
 
 exports.testHexConstructor = function () {
