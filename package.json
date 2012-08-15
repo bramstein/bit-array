@@ -1,21 +1,21 @@
 {
-	"name": "bit-array",
-	"description": "JavaScript implementation of bit arrays",
-	"version": "0.2.0",
-	"author": "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/bramstein/bit-array.git"
-	},
-	"keywords": ["bit array", "bit-array", "bit vector", "bitset", "bitmap", "bitstring"],
-	"main": "./lib/bit-typed-array.js",
-	"directories": {
-		"lib": "./lib"
-	},
+    "name": "bit-array",
+    "description": "JavaScript implementation of bit arrays",
+    "version": "0.2.1",
+    "author": "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/bramstein/bit-array.git"
+    },
+    "keywords": ["bit array", "bit-array", "bit vector", "bitset", "bitmap", "bitstring"],
+    "main": "./lib/bit-typed-array.js",
+    "directories": {
+        "lib": "./lib"
+    },
     "devDependencies": {
         "test": "0.4.x"
     },
-	"scripts": {
-	  "test": "node tests/bit-array.test.js"
-	}
+    "scripts": {
+      "test": "node tests/bit-array.test.js"
+    }
 }
