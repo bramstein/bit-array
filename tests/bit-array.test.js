@@ -1,5 +1,5 @@
 var assert = require('assert'),
-	BitArray = require('../lib/bit-array.js');
+	BitArray = require('../lib/bit-typed-array.js');
 
 exports.testConstructor = function () {
 	assert.equal(new BitArray(0).toString().length, 0, 'Empty bit array: toString()');
