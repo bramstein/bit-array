@@ -8,13 +8,13 @@
 		"url": "git://github.com/bramstein/bit-array.git"
 	},
 	"keywords": ["bit array", "bit-array", "bit vector", "bitset", "bitmap", "bitstring"],
-	"main": "./lib/bit-array.js",
+	"main": "./lib/bit-typed-array.js",
 	"directories": {
 		"lib": "./lib"
 	},
-	"devDependencies": {
-	  "test": "0.4.x"
-	},
+    "devDependencies": {
+        "test": "0.4.x"
+    },
 	"scripts": {
 	  "test": "node tests/bit-array.test.js"
 	}
