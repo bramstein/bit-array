@@ -7,18 +7,36 @@ exports.testConstructor = function () {
 };
 
 exports.testHexConstructor = function () {
-    var binaryDeadBeef = '11011110101011011011111011101111';
-	var b = new BitArray('deadbeef');
+	var b = new BitArray(32, 'deadbeef');
 
-    // Note that the "logical order" returned by the BitArray type is reversed
-    // from the "mathematical order" used to convert between representations.
-	assert.equal(b.toString().split('').reverse().join(''), binaryDeadBeef, 'BitArray(0x...)');
-	assert.equal(b.toBinaryString(), binaryDeadBeef, 'BitArray(0x...)');
+	assert.equal(b.toBinaryString(), '11011110101011011011111011101111', 'BitArray(0x...)');
 	assert.equal(b.toHexString(), 'deadbeef', 'BitArray(0x...)');
 
-	var c = new BitArray('c0ffeec0ffee').and(new BitArray('ffffffffff000000'));
+	var c = new BitArray(64, '0000c0ffeec0ffee').and(new BitArray(64, 'ffffffffff000000'));
 
-	assert.equal(c.toHexString(), 'c0ffee000000', 'BitArray(0x...)');
+	assert.equal(c.toHexString(), '0000c0ffee000000', 'BitArray(0x...)');
+};
+
+exports.testHexConstructorPadding = function () {
+    var b = new BitArray(32, 'f');
+
+    assert.equal(b.toHexString(), '0000000f');
+    assert.equal(b.toBinaryString(), '00000000000000000000000000001111');
+};
+
+exports.testToHexString = function () {
+    var b = new BitArray(32);
+
+    b.set(5, true);
+    b.set(6, true);
+
+    assert.equal(b.toHexString(), '00000060');
+    assert.equal(b.toBinaryString(), '00000000000000000000000001100000');
+
+    var c = new BitArray(32, b.toHexString());
+
+    assert.equal(c.toHexString(), '00000060');
+    assert.equal(c.toBinaryString(), '00000000000000000000000001100000');
 };
 
 exports.testSimpleSet = function () {

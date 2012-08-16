@@ -18,10 +18,9 @@ The bit array is sparse. The following example shows how to set and get individu
     a.get(1); // false
     a.get(31); // true
 
-Note that the array internally uses 32 bit integers (actually, JavaScript's number type is 64 bit, but only 32 bits can be addressed using bitwise operations.)
+Note that the array internally uses 32 bit integers (actually, JavaScript's number type is 64 bit, but only 32 bits can be addressed using bitwise operations,) so going beyond the given length throws an error:
 
-    a.set(32, true);
-    a.toString(); // "1000000000000000000000000000000110000000000000000000000000000000"
+    a.set(32, true); // throws an index of range exception
 
 Even though bit arrays are not that useful in JavaScript, there is one place where they excel; encoding large boolean sets for transfer between the browser and server. A JSON representation of a bit array is much smaller than an actual boolean array.
 
@@ -30,11 +29,11 @@ Even though bit arrays are not that useful in JavaScript, there is one place whe
 The BitArray module has two constructors:
 
 <dl>
-    <dt>BitArray(length)</dt>
-    <dd>Creates a new empty bit array with the given length.</dd>
+    <dt>BitArray(size)</dt>
+    <dd>Creates a new empty bit array with the given size in bits.</dd>
 
-    <dt>BitArray(string)</dt>
-    <dd>Creates a new bit array using the hex values in the string</dd>
+    <dt>BitArray(size, hex)</dt>
+    <dd>Creates a new bit array with the given size and using the hex string as value</dd>
 </dl>
 
 The following instance methods are supported:
