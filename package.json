@@ -1,7 +1,7 @@
 {
     "name": "bit-array",
     "description": "JavaScript implementation of bit arrays",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "author": "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)",
     "repository": {
         "type": "git",
