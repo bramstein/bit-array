@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/bramstein/bit-array.png)](http://travis-ci.org/bramstein/bit-array)
 ## JavaScript Bit Array Library
 
 This library contains a JavaScript implementation of bit arrays. The library supports:
