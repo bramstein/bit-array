@@ -1,5 +1,7 @@
-var BitArray = require('../lib/bit-typed-array.js'),
-    expect = require('expect.js');
+'use strict';
+
+const BitArray = require('../lib/bit-typed-array.js');
+const expect = require('expect.js');
 
 describe('BitArray', function () {
   it('should create an empty bit array', function () {
@@ -8,40 +10,42 @@ describe('BitArray', function () {
   });
 
   it('should parse hex given to the constructor', function () {
-    var b = new BitArray(32, 'deadbeef');
+    const b = new BitArray(32, 'deadbeef');
 
     expect(b.toBinaryString()).to.eql('11011110101011011011111011101111');
     expect(b.toHexString()).to.eql('deadbeef');
 
-    var c = new BitArray(64, '0000c0ffeec0ffee').and(new BitArray(64, 'ffffffffff000000'));
+    const c = new BitArray(64, '0000c0ffeec0ffee').and(
+      new BitArray(64, 'ffffffffff000000')
+    );
 
     expect(c.toHexString()).to.eql('0000c0ffee000000');
   });
 
   it('should correctly pad hex given in the constructor', function () {
-      var b = new BitArray(32, 'f');
+    const b = new BitArray(32, 'f');
 
-      expect(b.toHexString()).to.eql('0000000f');
-      expect(b.toBinaryString()).to.eql('00000000000000000000000000001111');
+    expect(b.toHexString()).to.eql('0000000f');
+    expect(b.toBinaryString()).to.eql('00000000000000000000000000001111');
   });
 
   it('should correctly convert a bit array to hex', function () {
-      var b = new BitArray(32);
+    const b = new BitArray(32);
 
-      b.set(5, true);
-      b.set(6, true);
+    b.set(5, true);
+    b.set(6, true);
 
-      expect(b.toHexString()).to.eql('00000060');
-      expect(b.toBinaryString()).to.eql('00000000000000000000000001100000');
+    expect(b.toHexString()).to.eql('00000060');
+    expect(b.toBinaryString()).to.eql('00000000000000000000000001100000');
 
-      var c = new BitArray(32, b.toHexString());
+    const c = new BitArray(32, b.toHexString());
 
-      expect(c.toHexString()).to.eql('00000060');
-      expect(c.toBinaryString()).to.eql('00000000000000000000000001100000');
+    expect(c.toHexString()).to.eql('00000060');
+    expect(c.toBinaryString()).to.eql('00000000000000000000000001100000');
   });
 
   it('should set individual bits', function () {
-    var b = new BitArray(32);
+    const b = new BitArray(32);
 
     b.set(31, true); // 0 | 1 << 30
     expect(b.size()).to.eql(32);
@@ -61,27 +65,29 @@ describe('BitArray', function () {
     expect(b.toString()).to.eql('10000000000000000000000000000001');
 
     // Reset bit 0 to false
-    b.set(0, false) // 0 | 1 << 31
+    b.set(0, false); // 0 | 1 << 31
     expect(b.size()).to.eql(32);
     expect(b.toString()).to.eql('00000000000000000000000000000001');
 
     // Reset bit 31 to false
-    b.set(31, false) // 0
+    b.set(31, false); // 0
     expect(b.size()).to.eql(32);
     expect(b.toString()).to.eql('00000000000000000000000000000000');
   });
 
   it('should be able to set bits beyond a single integer', function () {
-    var b = new BitArray(64);
+    const b = new BitArray(64);
 
     b.set(32, true);
 
     expect(b.size()).to.eql(64);
-    expect(b.toString()).to.eql('0000000000000000000000000000000010000000000000000000000000000000');
+    expect(b.toString()).to.eql(
+      '0000000000000000000000000000000010000000000000000000000000000000'
+    );
   });
 
   it('should get individual bits', function () {
-    var b = new BitArray(32);
+    const b = new BitArray(32);
     b.set(0, true);
     b.set(4, true);
     b.set(31, true);
@@ -100,7 +106,7 @@ describe('BitArray', function () {
   });
 
   it('should toggle individual bits', function () {
-    var b = new BitArray(32);
+    const b = new BitArray(32);
     b.set(0, true);
     b.set(31, true);
 
@@ -110,7 +116,7 @@ describe('BitArray', function () {
   });
 
   it('should toggle individual bits beyond a single integer', function () {
-    var b = new BitArray(64);
+    const b = new BitArray(64);
     b.set(32, true);
 
     expect(b.size()).to.eql(64);
@@ -119,13 +125,13 @@ describe('BitArray', function () {
   });
 
   it('should report the correct size', function () {
-    var b = new BitArray(224);
+    const b = new BitArray(224);
     b.set(200, true); // Math.floor(200 / 32) + 1 * 32;
     expect(b.size()).to.eql(224);
   });
 
   it('should count the individual on bits', function () {
-    var b = new BitArray(72);
+    const b = new BitArray(72);
 
     b.set(32, true);
     b.set(70, true);
@@ -136,10 +142,10 @@ describe('BitArray', function () {
   });
 
   it('should be able to compare bit arrays', function () {
-    var a = new BitArray(224),
-      b = new BitArray(224),
-      c = new BitArray(224),
-      d = new BitArray(224);
+    const a = new BitArray(224);
+    const b = new BitArray(224);
+    const c = new BitArray(224);
+    const d = new BitArray(224);
 
     a.set(0, true);
     a.set(1, true);
@@ -165,8 +171,8 @@ describe('BitArray', function () {
   });
 
   it('should copy a bit array', function () {
-    var a = new BitArray(224),
-        b;
+    const a = new BitArray(224);
+    let b;
 
     a.set(0, true);
     a.set(1, true);
@@ -178,8 +184,8 @@ describe('BitArray', function () {
   });
 
   it('should negate bit arrays', function () {
-    var b = new BitArray(64),
-        a;
+    const b = new BitArray(64);
+    let a;
 
     b.set(2, true);
     b.set(7, true);
@@ -189,7 +195,7 @@ describe('BitArray', function () {
 
     a = b.toString();
     a = a.replace(/0/g, 'x');
-    a =	a.replace(/1/g, '0');
+    a = a.replace(/1/g, '0');
     a = a.replace(/x/g, '1');
     b.not();
 
@@ -197,10 +203,10 @@ describe('BitArray', function () {
   });
 
   it('should or bit arrays', function () {
-    var a = new BitArray(32),
-        b = new BitArray(32);
+    const a = new BitArray(32);
+    const b = new BitArray(32);
 
-    a.set(0, true);//1110
+    a.set(0, true); //1110
     a.set(1, false);
     a.set(2, true);
     a.set(3, false);
@@ -214,8 +220,8 @@ describe('BitArray', function () {
   });
 
   it('should and bit arrays', function () {
-    var a = new BitArray(32),
-        b = new BitArray(32);
+    const a = new BitArray(32);
+    const b = new BitArray(32);
 
     a.set(0, true);
     a.set(1, false);
@@ -231,8 +237,8 @@ describe('BitArray', function () {
   });
 
   it('should xor bit arrays', function () {
-    var a = new BitArray(32),
-        b = new BitArray(32);
+    const a = new BitArray(32);
+    const b = new BitArray(32);
 
     a.set(0, true);
     a.set(1, false);
