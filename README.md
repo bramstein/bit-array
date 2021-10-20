@@ -1,6 +1,8 @@
-# JavaScript Bit Array Library
+## Bit-Array is deprecated. 
 
-## Bit-Array is deprecated. Please use <a href="https://github.com/infusion/BitSet.js" style="color: yellow;">BitSet.js</a>
+Please use <a href="https://github.com/infusion/BitSet.js" style="color: yellow;">BitSet.js</a>
+
+## JavaScript Bit Array Library
 
 This library contains a JavaScript implementation of bit arrays. The library supports:
 
